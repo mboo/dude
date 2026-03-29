@@ -1,0 +1,142 @@
+:root {
+  color-scheme: dark;
+  --bg: #11100d;
+  --panel: rgba(20, 17, 12, 0.72);
+  --panel-border: rgba(214, 181, 122, 0.25);
+  --text: #f2ead8;
+  --muted: #c5b69a;
+  --accent: #d1a35b;
+  --danger: #b6664a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(88, 61, 31, 0.28), transparent 30%),
+    linear-gradient(180deg, #1a1712 0%, #12100d 100%);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.game-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.game-canvas.locked {
+  cursor: none;
+}
+
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud-card {
+  position: absolute;
+  min-width: 180px;
+  padding: 12px 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+}
+
+.hud-state {
+  top: 18px;
+  left: 18px;
+}
+
+.hud-controls {
+  right: 18px;
+  bottom: 18px;
+}
+
+.hud-prompt {
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.hud-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.hud-value {
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+
+.hud-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.hud-list strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hud-prompt .hud-value {
+  color: var(--accent);
+}
+
+.hud-crosshair {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.hud-crosshair-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: rgba(242, 234, 216, 0.95);
+  box-shadow: 0 0 8px rgba(209, 163, 91, 0.35);
+  transform: translate(-50%, -50%);
+}
+
+.hud-crosshair-line-x {
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+}
+
+.hud-crosshair-line-y {
+  width: 2px;
+  height: 22px;
+  border-radius: 999px;
+}
